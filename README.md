@@ -42,6 +42,8 @@ LiDAR and survey practitioners who inspect, align, and compare point clouds.
 | 03 | `03-cloud-to-cloud` | Planned | Cloud-to-cloud distance and change detection |
 | 04 | `04-rasterize` | Planned | Rasterizing clouds into DEMs and hillshades |
 
+The pattern inventory above is authoritative: planned patterns are marked **Planned** and are not presented as implemented examples. Pattern numbers are unique and reserved for future directories.
+
 ## Repository layout
 
 ```text
