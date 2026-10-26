@@ -37,19 +37,16 @@ LiDAR and survey practitioners who inspect, align, and compare point clouds.
 
 | # | Example | Status | What it demonstrates |
 |---|---------|--------|---------------------|
-| 01 | [01-cli-basics](examples/01-cli-basics/README.md) | Written; runtime check pending | Capture CloudCompare CLI help output and confirm the command-line interface responds |
+| 01 | [01-cli-basics](examples/01-cli-basics/README.md) | Written; runtime check pending | Capture CloudCompare CLI help output with a bounded timeout and confirm the command-line interface responds |
 | 02 | `02-registration` | Planned | Aligning clouds with ICP and manual picks |
 | 03 | `03-cloud-to-cloud` | Planned | Cloud-to-cloud distance and change detection |
 | 04 | `04-rasterize` | Planned | Rasterizing clouds into DEMs and hillshades |
-| 02 | `02-registration` | Aligning clouds with ICP and manual picks |
-| 03 | `03-cloud-to-cloud` | Cloud-to-cloud distance and change detection |
-| 04 | `04-rasterize` | Rasterizing clouds into DEMs and hillshades |
 
 ## Repository layout
 
 ```text
 cloudcompare-cookbook/
-├── examples/01-cli-basics/  # CLI inspection script
+├── examples/01-cli-basics/  # bounded CLI inspection script
 ├── tests/             # static script/documentation contracts
 ├── .github/workflows/ # CI
 ├── README.md
@@ -58,7 +55,8 @@ cloudcompare-cookbook/
 
 ## Roadmap
 
-- Run the CLI-inspection pattern against the fleet CloudCompare 2.13.2 executable.
+- Run the bounded CLI-inspection pattern against the fleet CloudCompare 2.13.2 executable and capture its actual help output.
+- Verify the help timeout and executable path behavior on Windows Git Bash before relying on GNU `timeout`.
 - Add point-cloud open/export, filtering, and registration patterns only after command-line flags and output files are verified on Windows.
 
 ## Contributing
