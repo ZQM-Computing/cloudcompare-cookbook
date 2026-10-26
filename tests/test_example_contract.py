@@ -19,5 +19,12 @@ class CloudCompareExampleContractTests(unittest.TestCase):
         self.assertIn("set -euo pipefail", script)
 
 
+    def test_readme_pattern_table_has_consistent_columns(self):
+        readme = (ROOT / "README.md").read_text(encoding="utf-8")
+        section = readme.split("## Patterns", 1)[1].split("## Repository layout", 1)[0]
+        rows = [line for line in section.splitlines() if line.startswith("|")]
+        self.assertEqual(len(rows), 6)
+        self.assertTrue(all(len(row.strip("|").split("|")) == 4 for row in rows))
+
 if __name__ == "__main__":
     unittest.main()
