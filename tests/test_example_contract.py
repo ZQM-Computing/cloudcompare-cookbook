@@ -26,6 +26,14 @@ class CloudCompareExampleContractTests(unittest.TestCase):
         self.assertEqual(sum("03-cloud-to-cloud" in line for line in table_lines), 1)
         self.assertEqual(sum("04-rasterize" in line for line in table_lines), 1)
 
+    def test_pattern_table_has_consistent_four_column_shape(self):
+        readme = (ROOT / "README.md").read_text(encoding="utf-8")
+        section = readme.split("## Patterns", 1)[1].split("## Repository layout", 1)[0]
+        rows = [line for line in section.splitlines() if line.startswith("|")]
+        self.assertEqual(len(rows), 6)  # header, separator, and four pattern rows
+        for row in rows:
+            self.assertEqual(len(row.strip("|").split("|")), 4, row)
+
     def test_script_checks_binary_and_nonempty_help_output(self):
         script = (EXAMPLE / "inspect-cli.sh").read_text(encoding="utf-8")
         self.assertIn('"${CLOUDCOMPARE_BIN:-CloudCompare}"', script)
