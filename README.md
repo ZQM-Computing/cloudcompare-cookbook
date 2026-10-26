@@ -55,7 +55,8 @@ cloudcompare-cookbook/
 
 ## Roadmap
 
-- Run the CLI-inspection pattern against the fleet CloudCompare 2.13.2 executable.
+- Run the bounded CLI-inspection pattern against the fleet CloudCompare 2.13.2 executable and capture its actual help output.
+- Verify the help timeout and executable path behavior on Windows Git Bash before relying on GNU `timeout`.
 - Add point-cloud open/export, filtering, and registration patterns only after command-line flags and output files are verified on Windows.
 
 ## Contributing
