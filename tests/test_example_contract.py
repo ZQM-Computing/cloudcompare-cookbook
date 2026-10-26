@@ -17,6 +17,9 @@ class CloudCompareExampleContractTests(unittest.TestCase):
         self.assertIn('"$bin" -HELP', script)
         self.assertIn('[[ ! -s "$output_path" ]]', script)
         self.assertIn("set -euo pipefail", script)
+        self.assertIn("CLOUDCOMPARE_HELP_TIMEOUT_SECONDS", script)
+        self.assertIn("timeout --signal=TERM --kill-after=5", script)
+        self.assertIn('status -eq 124 || status -eq 137', script)
 
 
 if __name__ == "__main__":
