@@ -15,7 +15,7 @@ A **CloudCompare cookbook** for point-cloud visualization, registration, and com
 
 ## Repository role and status
 
-**Status:** Active, public — seeding. Pattern passes land in follow-up work from fleet-verified setups; the tables below list what is planned, not what is already written.
+**Status:** Active, public — first CLI-inspection pattern written. CI validates the shell contract; runtime behavior still requires a fleet run against CloudCompare 2.13.2.
 
 **What this repository is:** CloudCompare patterns — see the table below.
 
@@ -33,11 +33,14 @@ LiDAR and survey practitioners who inspect, align, and compare point clouds.
 - A sample LAS/LAZ file
 - Bash for the command-line passes
 
-## Patterns (planned)
+## Patterns
 
-| # | Example | What it will demonstrate |
-|---|---------|--------------------------|
-| 01 | `01-view-filter` | Opening, filtering, and subsampling clouds |
+| # | Example | Status | What it demonstrates |
+|---|---------|--------|---------------------|
+| 01 | [01-cli-basics](examples/01-cli-basics/README.md) | Written; runtime check pending | Capture CloudCompare CLI help output and confirm the command-line interface responds |
+| 02 | `02-registration` | Planned | Aligning clouds with ICP and manual picks |
+| 03 | `03-cloud-to-cloud` | Planned | Cloud-to-cloud distance and change detection |
+| 04 | `04-rasterize` | Planned | Rasterizing clouds into DEMs and hillshades |
 | 02 | `02-registration` | Aligning clouds with ICP and manual picks |
 | 03 | `03-cloud-to-cloud` | Cloud-to-cloud distance and change detection |
 | 04 | `04-rasterize` | Rasterizing clouds into DEMs and hillshades |
@@ -46,15 +49,17 @@ LiDAR and survey practitioners who inspect, align, and compare point clouds.
 
 ```text
 cloudcompare-cookbook/
-├── examples/          # pattern passes, landing in follow-up work
+├── examples/01-cli-basics/  # CLI inspection script
+├── tests/             # static script/documentation contracts
+├── .github/workflows/ # CI
 ├── README.md
 └── LICENSE
 ```
 
 ## Roadmap
 
-- First pattern pass: the first two table rows
-- Second pass: the remaining rows, from fleet-verified setups
+- Run the CLI-inspection pattern against the fleet CloudCompare 2.13.2 executable.
+- Add point-cloud open/export, filtering, and registration patterns only after command-line flags and output files are verified on Windows.
 
 ## Contributing
 
